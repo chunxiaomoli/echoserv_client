@@ -1,0 +1,46 @@
+// five connections
+01:19:00.661976 IP localhost.33827 > localhost.3135: Flags [S], seq 307526063, win 32792, options [mss 16396,sackOK,TS val 1022705 ecr 0,nop,wscale 7], length 0
+01:19:00.662013 IP localhost.3135 > localhost.33827: Flags [S.], seq 1246236387, ack 307526064, win 32768, options [mss 16396,sackOK,TS val 1022705 ecr 1022705,nop,wscale 7], length 0
+01:19:00.662035 IP localhost.33827 > localhost.3135: Flags [.], ack 1, win 257, options [nop,nop,TS val 1022705 ecr 1022705], length 0
+01:19:00.665320 IP localhost.33828 > localhost.3135: Flags [S], seq 4045746848, win 32792, options [mss 16396,sackOK,TS val 1022706 ecr 0,nop,wscale 7], length 0
+01:19:00.665353 IP localhost.3135 > localhost.33828: Flags [S.], seq 529189838, ack 4045746849, win 32768, options [mss 16396,sackOK,TS val 1022706 ecr 1022706,nop,wscale 7], length 0
+01:19:00.665372 IP localhost.33828 > localhost.3135: Flags [.], ack 1, win 257, options [nop,nop,TS val 1022706 ecr 1022706], length 0
+01:19:00.668424 IP localhost.33829 > localhost.3135: Flags [S], seq 2530127775, win 32792, options [mss 16396,sackOK,TS val 1022707 ecr 0,nop,wscale 7], length 0
+01:19:00.668457 IP localhost.3135 > localhost.33829: Flags [S.], seq 2999720748, ack 2530127776, win 32768, options [mss 16396,sackOK,TS val 1022707 ecr 1022707,nop,wscale 7], length 0
+01:19:00.668476 IP localhost.33829 > localhost.3135: Flags [.], ack 1, win 257, options [nop,nop,TS val 1022707 ecr 1022707], length 0
+01:19:00.671105 IP localhost.33830 > localhost.3135: Flags [S], seq 772912130, win 32792, options [mss 16396,sackOK,TS val 1022707 ecr 0,nop,wscale 7], length 0
+01:19:00.671249 IP localhost.3135 > localhost.33830: Flags [S.], seq 3610606463, ack 772912131, win 32768, options [mss 16396,sackOK,TS val 1022707 ecr 1022707,nop,wscale 7], length 0
+01:19:00.671269 IP localhost.33830 > localhost.3135: Flags [.], ack 1, win 257, options [nop,nop,TS val 1022707 ecr 1022707], length 0
+01:19:00.673324 IP localhost.33831 > localhost.3135: Flags [S], seq 2006662590, win 32792, options [mss 16396,sackOK,TS val 1022708 ecr 0,nop,wscale 7], length 0
+01:19:00.673446 IP localhost.3135 > localhost.33831: Flags [S.], seq 2743215677, ack 2006662591, win 32768, options [mss 16396,sackOK,TS val 1022708 ecr 1022708,nop,wscale 7], length 0
+01:19:00.673471 IP localhost.33831 > localhost.3135: Flags [.], ack 1, win 257, options [nop,nop,TS val 1022708 ecr 1022708], length 0
+
+
+
+//send data "ddd" length=4
+01:19:55.953155 IP localhost.33829 > localhost.3135: Flags [P.], seq 1:5, ack 1, win 257, options [nop,nop,TS val 1036528 ecr 1022707], length 4
+01:19:55.953505 IP localhost.3135 > localhost.33829: Flags [.], ack 5, win 256, options [nop,nop,TS val 1036528 ecr 1036528], length 0
+01:19:55.953582 IP localhost.3135 > localhost.33829: Flags [P.], seq 1:5, ack 5, win 256, options [nop,nop,TS val 1036528 ecr 1036528], length 4
+01:19:55.954944 IP localhost.33829 > localhost.3135: Flags [.], ack 5, win 257, options [nop,nop,TS val 1036528 ecr 1036528], length 0
+
+//kill -9 4697
+01:22:09.068488 IP localhost.3135 > localhost.33829: Flags [F.], seq 28, ack 28, win 256, options [nop,nop,TS val 1069807 ecr 1058959], length 0
+01:22:09.108617 IP localhost.33829 > localhost.3135: Flags [.], ack 29, win 257, options [nop,nop,TS val 1069817 ecr 1069807], length 0
+
+// client send data "baicheng" length=8
+01:22:35.723803 IP localhost.33829 > localhost.3135: Flags [P.], seq 28:36, ack 29, win 257, options [nop,nop,TS val 1076470 ecr 1069807], length 8
+01:22:35.724112 IP localhost.3135 > localhost.33829: Flags [R], seq 2999720777, win 0, length 0
+
+01:22:35.724388 IP localhost.33827 > localhost.3135: Flags [F.], seq 1, ack 1, win 257, options [nop,nop,TS val 1076471 ecr 1022705], length 0
+01:22:35.724436 IP localhost.33828 > localhost.3135: Flags [F.], seq 1, ack 1, win 257, options [nop,nop,TS val 1076471 ecr 1022706], length 0
+01:22:35.724470 IP localhost.33830 > localhost.3135: Flags [F.], seq 1, ack 1, win 257, options [nop,nop,TS val 1076471 ecr 1022707], length 0
+01:22:35.724495 IP localhost.33831 > localhost.3135: Flags [F.], seq 1, ack 1, win 257, options [nop,nop,TS val 1076471 ecr 1022708], length 0
+// send FIN to server
+01:22:35.726936 IP localhost.3135 > localhost.33827: Flags [F.], seq 1, ack 2, win 256, options [nop,nop,TS val 1076471 ecr 1076471], length 0
+01:22:35.726993 IP localhost.33827 > localhost.3135: Flags [.], ack 2, win 257, options [nop,nop,TS val 1076471 ecr 1076471], length 0
+01:22:35.728174 IP localhost.3135 > localhost.33828: Flags [F.], seq 1, ack 2, win 256, options [nop,nop,TS val 1076471 ecr 1076471], length 0
+01:22:35.728212 IP localhost.33828 > localhost.3135: Flags [.], ack 2, win 257, options [nop,nop,TS val 1076471 ecr 1076471], length 0
+01:22:35.729613 IP localhost.3135 > localhost.33830: Flags [F.], seq 1, ack 2, win 256, options [nop,nop,TS val 1076472 ecr 1076471], length 0
+01:22:35.729652 IP localhost.33830 > localhost.3135: Flags [.], ack 2, win 257, options [nop,nop,TS val 1076472 ecr 1076472], length 0
+01:22:35.730472 IP localhost.3135 > localhost.33831: Flags [F.], seq 1, ack 2, win 256, options [nop,nop,TS val 1076472 ecr 1076471], length 0
+01:22:35.730507 IP localhost.33831 > localhost.3135: Flags [.], ack 2, win 257, options [nop,nop,TS val 1076472 ecr 1076472], length 0
